@@ -9,17 +9,6 @@
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
-            padding: 0;<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autoavaliação de TDAH - ASRS-18</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
             padding: 0;
         }
         .container {
@@ -80,8 +69,7 @@
         }
 
         function submitForm(event) {
-            // Impede o comportamento padrão do formulário (que é recarregar a página)
-            event.preventDefault();
+            event.preventDefault(); // Previne o envio padrão do formulário
 
             // Coleta os dados do formulário
             const name = document.getElementById('name').value;
@@ -132,88 +120,6 @@
         </form>
 
         <form id="asrs-questionnaire" style="display:none;" onsubmit="submitForm(event)">
-            <h2>Parte A</h2>
-            <div id="partA">
-                <!-- Parte A: 6 Perguntas -->
-                <label>1. Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?</label>
-                <select name="q1" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <!-- Repetir perguntas Parte A e Parte B -->
-                <!-- ... -->
-
-                <button type="submit">Enviar Resultados</button>
-            </div>
-        </form>
-    </div>
-</body>
-</html>
-
-        }
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        select, input, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("oYIhqJYPr2OJH1DkE"); // Seu User ID do Email.js
-        })();
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Questionário ASRS-18</h1>
-        <h2>Informações do Paciente</h2>
-        <form id="patient-info">
-            <label for="name">Nome Completo:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" required>
-
-            <label for="phone">Telefone:</label>
-            <input type="tel" id="phone" name="phone" required>
-            
-            <button type="button" onclick="startQuestionnaire()">Iniciar Questionário</button>
-        </form>
-
-        <form id="asrs-questionnaire" style="display:none;">
             <h2>Parte A</h2>
             <div id="partA">
                 <!-- Parte A: 6 Perguntas -->
@@ -291,144 +197,11 @@
                     <option value="4">Sempre</option>
                 </select>
 
-                <label>8. Com que frequência você tem dificuldade para manter a atenção quando está fazendo um trabalho chato ou repetitivo?</label>
-                <select name="q8" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
+                <!-- Repetir para as perguntas restantes -->
 
-                <label>9. Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas estão falando diretamente com você?</label>
-                <select name="q9" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>10. Com que frequência você coloca as coisas fora do lugar ou tem dificuldade de encontrar as coisas em casa ou no trabalho?</label>
-                <select name="q10" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>11. Com que frequência você se distrai com atividades ou barulho à sua volta?</label>
-                <select name="q11" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>12. Com que frequência você se sente inquieto(a) ou agitado(a)?</label>
-                <select name="q12" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>13. Com que frequência você tem dificuldade para sossegar e relaxar quando tem tempo livre para você?</label>
-                <select name="q13" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>14. Com que frequência você se pega falando demais em situações sociais?</label>
-                <select name="q14" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>15. Com que frequência você se levanta da cadeira em reuniões ou em outras situações onde deveria ficar sentado(a)?</label>
-                <select name="q15" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>16. Quando você está conversando, com que frequência você se pega terminando as frases das pessoas antes delas?</label>
-                <select name="q16" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
+                <button type="submit">Enviar Resultados</button>
             </div>
-
-            <button type="button" onclick="submitForm()">Enviar Resultados</button>
         </form>
     </div>
-
-    <script>
-        function startQuestionnaire() {
-            document.getElementById('patient-info').style.display = 'none';
-            document.getElementById('asrs-questionnaire').style.display = 'block';
-        }
-
-        function calculateScore() {
-            const partA = document.querySelectorAll('#partA select');
-            let shadedCount = 0;
-
-            partA.forEach(select => {
-                if (parseInt(select.value) >= 3) shadedCount++;
-            });
-
-            return shadedCount >= 4
-                ? "Os resultados sugerem alta compatibilidade com TDAH. Procure um especialista."
-                : "Os resultados não sugerem forte compatibilidade com TDAH, mas consulte um médico se houver dúvidas.";
-        }
-
-        function submitForm() {
-            const name = document.getElementById('name').value;
-            const cpf = document.getElementById('cpf').value;
-            const phone = document.getElementById('phone').value;
-
-            const partAResult = calculateScore();
-            const partBResult = "Respostas completas para análise.";
-
-            const emailParams = {
-                name: name,
-                cpf: cpf,
-                phone: phone,
-                partAResult: partAResult,
-                partBResult: partBResult,
-            };
-
-            emailjs.send("meusdadospablo", "mdptemplatetdah", emailParams)
-                .then(() => {
-                    alert("Resultados enviados com sucesso!");
-                })
-                .catch(error => {
-                    console.error("Erro ao enviar e-mail:", error);
-                });
-        }
-    </script>
 </body>
 </html>
