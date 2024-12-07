@@ -225,4 +225,11 @@
                     // Limpar os campos após o envio
                     document.getElementById('patient-info').reset();
                     document.getElementById('asrs-questionnaire').reset();
-                }, function(error)
+                }, function(error) {
+                    alert("Erro ao enviar o e-mail. Tente novamente.");
+                    console.error("Erro ao enviar e-mail:", error);
+                });
+        }
+    </script>
+</body>
+</html>
