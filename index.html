@@ -43,6 +43,14 @@
         button:hover {
             background-color: #0056b3;
         }
+        .warning {
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
     </style>
     
     <!-- EmailJS SDK -->
@@ -168,6 +176,18 @@
 <body>
     <div class="container">
         <h1>Questionário ASRS-18</h1>
+        
+        <!-- Aviso sobre o preenchimento correto dos campos -->
+        <div class="warning">
+            <p><strong>Atenção!</strong></p>
+            <p>Ao preencher os dados, certifique-se de:</p>
+            <ul>
+                <li>Inserir <strong>nome e sobrenome</strong> no campo <strong>Nome Completo</strong>.</li>
+                <li>Preencher o <strong>CPF</strong> com exatamente <strong>11 dígitos numéricos</strong>.</li>
+                <li>Inserir o número de <strong>telefone</strong> no formato <strong>(xx) xxxxx-xxxx</strong>.</li>
+            </ul>
+        </div>
+        
         <h2>Informações do Paciente</h2>
         <form id="patient-info">
             <label for="name">Nome Completo:</label>
@@ -185,170 +205,12 @@
         <form id="asrs-questionnaire" style="display:none;" onsubmit="submitForm(event)">
             <h2>Parte A</h2>
             <div id="partA">
-                <!-- Parte A: 6 Perguntas -->
-                <label>1. Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?</label>
-                <select name="q1" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>2. Com que frequência você tem dificuldade para fazer um trabalho que exige organização?</label>
-                <select name="q2" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>3. Com que frequência você tem dificuldade para lembrar de compromissos ou obrigações?</label>
-                <select name="q3" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>4. Quando você precisa fazer algo que exige muita concentração, com que frequência você evita ou adia o início?</label>
-                <select name="q4" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>5. Com que frequência você fica se mexendo na cadeira ou balançando as mãos ou os pés quando precisa ficar sentado(a) por muito tempo?</label>
-                <select name="q5" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>6. Com que frequência você se sente ativo(a) demais e necessitando fazer coisas, como se estivesse “com um motor ligado”?</label>
-                <select name="q6" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
+                <!-- COLAR AQUI AS PERGUNTAS DA PARTE A -->
             </div>
 
             <h2>Parte B</h2>
             <div id="partB">
-                <!-- Parte B: 12 Perguntas -->
-                <label>7. Com que frequência você comete erros bobos por falta de atenção?</label>
-                <select name="q7" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>8. Com que frequência você tem dificuldade para manter a atenção quando está fazendo um trabalho chato ou repetitivo?</label>
-                <select name="q8" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>9. Com que frequência você tem dificuldade para se concentrar no que as pessoas dizem, mesmo quando elas estão falando diretamente com você?</label>
-                <select name="q9" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>10. Com que frequência você coloca as coisas fora do lugar ou tem dificuldade de encontrar as coisas em casa ou no trabalho?</label>
-                <select name="q10" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>11. Com que frequência você se distrai com atividades ou barulho à sua volta?</label>
-                <select name="q11" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>12. Com que frequência você se sente inquieto(a) ou agitado(a)?</label>
-                <select name="q12" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>13. Com que frequência você tem dificuldade para sossegar e relaxar quando tem tempo livre para você?</label>
-                <select name="q13" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>14. Com que frequência você se pega falando demais em situações sociais?</label>
-                <select name="q14" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>15. Com que frequência você se levanta da cadeira em reuniões ou em outras situações onde deveria ficar sentado(a)?</label>
-                <select name="q15" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
-
-                <label>16. Quando você está conversando, com que frequência você se pega terminando as frases das pessoas antes delas?</label>
-                <select name="q16" required>
-                    <option value="">Selecione</option>
-                    <option value="0">Nunca</option>
-                    <option value="1">Quase nunca</option>
-                    <option value="2">De vez em quando</option>
-                    <option value="3">Quase sempre</option>
-                    <option value="4">Sempre</option>
-                </select>
+                <!-- COLAR AQUI AS PERGUNTAS DA PARTE B -->
             </div>
             
             <button type="submit">Enviar Resultados</button>
