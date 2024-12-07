@@ -44,6 +44,12 @@
             background-color: #0056b3;
         }
     </style>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("SEU_USER_ID"); // Substitua pelo seu User ID do Email.js
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -64,8 +70,8 @@
 
         <form id="asrs-questionnaire" style="display:none;">
             <h2>Parte A</h2>
-            <!-- Parte A: 6 Perguntas -->
             <div id="partA">
+                <!-- Parte A: 6 Perguntas -->
                 <label>1. Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?</label>
                 <select name="q1" required>
                     <option value="">Selecione</option>
@@ -76,22 +82,12 @@
                     <option value="4">Sempre</option>
                 </select>
 
-                <label>2. Com que frequência você tem dificuldade para fazer um trabalho que exige organização?</label>
-                <select name="q2" required>
-                    <!-- opções -->
-                </select>
-                
-                <!-- Repetir para as 6 perguntas -->
+                <!-- Repetir perguntas Parte A e Parte B -->
             </div>
 
             <h2>Parte B</h2>
             <div id="partB">
                 <!-- Parte B: 12 Perguntas -->
-                <label>7. Com que frequência você comete erros bobos por falta de atenção?</label>
-                <select name="q7" required>
-                    <!-- opções -->
-                </select>
-                <!-- Repetir -->
             </div>
 
             <button type="button" onclick="submitForm()">Enviar Resultados</button>
@@ -118,22 +114,28 @@
         }
 
         function submitForm() {
-            const patientName = document.getElementById('name').value;
+            const name = document.getElementById('name').value;
+            const cpf = document.getElementById('cpf').value;
+            const phone = document.getElementById('phone').value;
+
             const partAResult = calculateScore();
             const partBResult = "Respostas completas para análise.";
 
-            const emailContent = `
-                Nome: ${patientName}
-                Resultados Parte A: ${partAResult}
-                Resultados Parte B: ${partBResult}
-            `;
+            const emailParams = {
+                name: name,
+                cpf: cpf,
+                phone: phone,
+                partAResult: partAResult,
+                partBResult: partBResult,
+            };
 
-            // Simular envio de e-mail (integrar com API de envio)
-            alert(emailContent);
-
-            // Limpar formulário após envio
-            document.getElementById('patient-info').reset();
-            document.getElementById('asrs-questionnaire').reset();
+            emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", emailParams)
+                .then(() => {
+                    alert("Resultados enviados com sucesso!");
+                })
+                .catch(error => {
+                    console.error("Erro ao enviar e-mail:", error);
+                });
         }
     </script>
 </body>
