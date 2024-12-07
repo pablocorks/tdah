@@ -29,22 +29,22 @@
 
         h1, h2 {
             text-align: center;
-            font-size: 24px; /* Aumentando o tamanho da fonte */
+            font-size: 48px; /* Aumentando o tamanho da fonte */
         }
 
         label {
             display: block;
             margin: 10px 0 5px;
-            font-size: 16px; /* Aumentando o tamanho das fontes das labels */
+            font-size: 32px; /* Aumentando o tamanho das fontes das labels */
         }
 
         select, input, button {
-            width: 100%;
+            width: 80%;
             padding: 15px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 18px; /* Aumentando o tamanho da fonte nos inputs e botões */
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 36px; /* Aumentando o tamanho da fonte nos inputs e botões */
         }
 
         button {
@@ -65,35 +65,40 @@
             }
 
             h1, h2 {
-                font-size: 26px; /* Aumentando o tamanho do título */
+                font-size: 50px; /* Aumentando o tamanho do título */
             }
 
             label, select, input, button {
-                font-size: 18px; /* Tamanho maior de fontes para telas pequenas */
+                font-size: 32px; /* Tamanho maior de fontes para telas pequenas */
             }
 
             button {
-                padding: 15px; /* Aumentando o tamanho do botão */
+                padding: 30px; /* Aumentando o tamanho do botão */
             }
         }
 
-        /* Ajustes para telas muito pequenas (ex: celulares mais antigos) */
+        /* Ajuste para telas muito pequenas (ex: celulares mais antigos) */
         @media screen and (max-width: 400px) {
             .container {
-                padding: 15px;
+                padding: 30px;
             }
 
             h1, h2 {
-                font-size: 22px; /* Ajustando o tamanho do título para telas bem pequenas */
+                font-size: 50px; /* Ajustando o tamanho do título para telas bem pequenas */
             }
 
             label, select, input, button {
-                font-size: 16px; /* Ajustando o tamanho da fonte para telas muito pequenas */
+                font-size: 32px; /* Ajustando o tamanho da fonte para telas muito pequenas */
             }
 
             button {
-                padding: 12px; /* Ajustando o tamanho do botão */
+                padding: 24px; /* Ajustando o tamanho do botão */
             }
+        }
+
+        /* Adicionando a margem superior de 500px para o questionário */
+        #asrs-questionnaire {
+            margin-top: 500px; /* Margem de 500px do topo */
         }
     </style>
     
@@ -198,7 +203,7 @@
         </form>
 
         <form id="asrs-questionnaire" style="display:none;" onsubmit="submitForm(event)">
-          <h2>Parte A</h2>
+      <h2>Parte A</h2>
             <div id="partA">
                 <!-- Parte A: 6 Perguntas -->
                 <label>1. Com que frequência você deixa um projeto pela metade depois de já ter feito as partes mais difíceis?</label>
