@@ -148,7 +148,7 @@
                     <option value="4">Sempre</option>
                 </select>
 
-                <!-- Adicionar as perguntas restantes aqui -->
+                <!-- Adicionar mais perguntas de Parte B -->
 
                 <button type="submit">Enviar Resultados</button>
             </div>
@@ -163,15 +163,38 @@
 
         function calculateScore() {
             const partA = document.querySelectorAll('#partA select');
+            let partAScore = 0;
             let shadedCount = 0;
 
+            // Calculando a pontuação da Parte A
             partA.forEach(select => {
-                if (parseInt(select.value) >= 3) shadedCount++;
+                const value = parseInt(select.value);
+                partAScore += value;
+                if (value >= 3) shadedCount++;
             });
 
-            return shadedCount >= 4
-                ? "Os resultados sugerem alta compatibilidade com TDAH. Procure um especialista."
-                : "Os resultados não sugerem forte compatibilidade com TDAH, mas consulte um médico se houver dúvidas.";
+            const partAResult = shadedCount >= 4
+                ? "Os resultados sugerem alta compatibilidade com TDAH (Parte A)."
+                : "Os resultados não sugerem forte compatibilidade com TDAH (Parte A).";
+
+            // Calculando a pontuação da Parte B
+            const partB = document.querySelectorAll('#partB select');
+            let partBScore = 0;
+            partB.forEach(select => {
+                const value = parseInt(select.value);
+                partBScore += value;
+            });
+
+            const partBResult = partBScore >= 30
+                ? "Os resultados sugerem alta compatibilidade com TDAH (Parte B)."
+                : "Os resultados não sugerem forte compatibilidade com TDAH (Parte B).";
+
+            return {
+                partAScore: partAScore,
+                partAResult: partAResult,
+                partBScore: partBScore,
+                partBResult: partBResult
+            };
         }
 
         function submitForm(event) {
@@ -182,8 +205,7 @@
             const cpf = document.getElementById('cpf').value;
             const phone = document.getElementById('phone').value;
 
-            const partAResult = calculateScore();
-            const partBResult = "Respostas completas para análise.";
+            const { partAScore, partAResult, partBScore, partBResult } = calculateScore();
 
             // Parâmetros do e-mail
             const emailParams = {
@@ -191,6 +213,8 @@
                 cpf: cpf,
                 phone: phone,
                 partAResult: partAResult,
+                partAScore: partAScore,
+                partBScore: partBScore,
                 partBResult: partBResult,
             };
 
@@ -201,11 +225,4 @@
                     // Limpar os campos após o envio
                     document.getElementById('patient-info').reset();
                     document.getElementById('asrs-questionnaire').reset();
-                }, function(error) {
-                    alert("Erro ao enviar o e-mail. Tente novamente.");
-                    console.error("Erro ao enviar e-mail:", error);
-                });
-        }
-    </script>
-</body>
-</html>
+                }, function(error)
